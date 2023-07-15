@@ -8,7 +8,7 @@ static LightResult Indirect(PixelInput i, Material m) //间接光照信息
             float3 vAmbientCube[6];
             SampleLightProbeVolume(vAmbientCube, light.Position); //采样 Light Probe Volume
           
-// 注意起源 2 还不是球谐函数，V 社是个烂狗，用了尼玛二十几年的技术
+// 注意起源 2 还不是球谐函数，V 社是个懒狗，用了尼玛二十几年的技术
           
             float3 secondaryGI = 0.5 * (SampleIrradiance(vAmbientCube, float3(0, 1, 0)) + SampleIrradiance(vAmbientCube, float3(0, -1, 0))); // 采样辐照度
             indirectLighting = lerp(secondaryGI, SampleIrradiance(vAmbientCube, normalWs), IndirectLightIntensity);
